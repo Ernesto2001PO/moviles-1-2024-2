@@ -43,6 +43,7 @@ class CommentAdapter(
         private val contentView: TextView = binding.lblCommentItemText
         private val lblEmail: TextView = binding.lblCommentItemMail
         private val lblName: TextView = binding.lblCommentItemName
+        private val lblid: TextView = binding.lblCommentId
 
         override fun toString(): String {
             return super.toString() + " '" + contentView.text + "'"
@@ -52,6 +53,7 @@ class CommentAdapter(
             contentView.text = item.body
             lblEmail.text = item.email
             lblName.text = item.name
+            lblid.text = item.id.toString()
         }
     }
 

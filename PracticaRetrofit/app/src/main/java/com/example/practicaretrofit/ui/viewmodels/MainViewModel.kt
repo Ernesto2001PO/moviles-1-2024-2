@@ -13,12 +13,21 @@ class MainViewModel : ViewModel() {
     private val _body = MutableLiveData<String>().apply {
         value = ""
     }
+
+    private val _idComment = MutableLiveData<String>().apply {
+        value = " "
+
+    }
     val body: LiveData<String> = _body
     fun getPostById(id: Int) {
         PostRepository.getPostById(id,
             onSuccess = {
                 _title.value = it.title
+
                 _body.value = it.body
+
+                _idComment.value = it.id.toString()
+
                 println("Post: $it")
             }, onError = {
                 println("Error: $it")
